@@ -46,7 +46,10 @@ public class FilterBuilder implements Predicate<String> {
         return this;
     }
 
-    /** exclude packages of a given prefix */
+    /** exclude a package of a given prefix(enhanced as below) */
+//    public FilterBuilder excludePackage(final String prefix) {return add(new Exclude(prefix(prefix)));}
+
+    /** exclude packages of given prefixes */
     public FilterBuilder excludePackage(final String... prefixes) {
         for (String prefix : prefixes) {
             add(new Exclude(prefix(prefix)));

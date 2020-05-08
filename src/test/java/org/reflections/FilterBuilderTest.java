@@ -56,10 +56,12 @@ public class FilterBuilderTest {
 
     @Test
     public void test_excludePackage() {
-        FilterBuilder filter = new FilterBuilder().excludePackage("org.reflections");
+        FilterBuilder filter = new FilterBuilder().excludePackage("org.reflections","org.a");
         assertFalse(filter.test("org.reflections.Reflections"));
         assertFalse(filter.test("org.reflections.foo.Reflections"));
         assertTrue(filter.test("org.foobar.Reflections"));
+        assertFalse(filter.test("org.a.b"));
+        assertTrue(filter.test("org.foobar.b"));
     }
 
     @Test
