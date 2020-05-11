@@ -5,17 +5,16 @@ import org.junit.Test;
 import org.reflections.scanners.*;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
-import org.reflections.util.FilterBuilder;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 
-class TestClass{
+class TestClass {
     private void m1(String testParam1, String testParam2) {
         String testLocal = "local";
     }
@@ -38,26 +37,16 @@ public class TestIssue256 {
     }
 
     @Test
-    public void testGetMethodParamNamesPrivate() throws NoSuchMethodException{
+    public void testGetMethodParamNamesPrivate() throws NoSuchMethodException {
         Method method = TestClass.class.getDeclaredMethod("m1", String.class, String.class);
-
-        List<String> expected = new ArrayList<>();
-        expected.add("testParam1");
-        expected.add("testParam2");
-
         List<String> found = reflections.getMethodParamNames(method);
-        assertEquals(expected, found);
+        assertEquals(Arrays.asList("testParam1", "testParam2"), found);
     }
 
     @Test
-    public void testGetMethodParamNamesStaticPublic() throws NoSuchMethodException{
+    public void testGetMethodParamNamesStaticPublic() throws NoSuchMethodException {
         Method method = TestClass.class.getDeclaredMethod("m2", int.class, String.class);
-
-        List<String> expected = new ArrayList<>();
-        expected.add("testParam1");
-        expected.add("testParam2");
-
         List<String> found = reflections.getMethodParamNames(method);
-        assertEquals(expected, found);
+        assertEquals(Arrays.asList("testParam1", "testParam2"), found);
     }
 }

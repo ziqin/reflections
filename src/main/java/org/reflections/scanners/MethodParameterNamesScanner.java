@@ -14,12 +14,12 @@ import java.util.List;
 
 import static org.reflections.util.Utils.join;
 
-/** scans methods/constructors and indexes parameter names */
+/** Scans methods/constructors and indexes parameter names */
 @SuppressWarnings("unchecked")
 public class MethodParameterNamesScanner extends AbstractScanner {
 
     /**
-     * scan for the parameter name for given method in class.
+     * Scans for the parameter name for given method in class.
      * @param cls the javassist.bytecode.ClassFile of a class
      * @param store store the result inside
      */
@@ -39,7 +39,7 @@ public class MethodParameterNamesScanner extends AbstractScanner {
                     MethodInfo methodInfo = cm.getMethodInfo();
                     CodeAttribute codeAttribute = methodInfo.getCodeAttribute();
                     LocalVariableAttribute table = null;
-                    if(codeAttribute != null){
+                    if (codeAttribute != null) {
                        table = (LocalVariableAttribute) codeAttribute.getAttribute(LocalVariableAttribute.tag);
                     }
 
@@ -50,12 +50,13 @@ public class MethodParameterNamesScanner extends AbstractScanner {
                         for (int i = pos; i < length + pos; i++) {
                             names.add(table.variableName(i));
                         }
-                        put(store, key, join(names, ", "));
+                        if (names.size() > 0) {
+                            put(store, key, join(names, ", "));
+                        }
                     }
                 } catch (CannotCompileException | NotFoundException e) {
                     e.printStackTrace();
-                } catch (ArrayIndexOutOfBoundsException e){
-                    continue;
+                } catch (ArrayIndexOutOfBoundsException ignored){
                 }
             }
         }
