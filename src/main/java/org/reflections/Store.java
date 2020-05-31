@@ -33,6 +33,7 @@ public class Store {
         }
     }
 
+    //CS304 Issue link: https://github.com/ronmamo/reflections
     /**
      * gets types from method scanner
      * @return set of types in string
@@ -45,6 +46,7 @@ public class Store {
         return map.keySet();
     }
 
+    //CS304 Issue link: https://github.com/ronmamo/reflections
     /**
      * gets methods from method scanner
      * @param target the target type sets in string
@@ -58,6 +60,7 @@ public class Store {
         return result;
     }
 
+    //CS304 Issue link: https://github.com/ronmamo/reflections
     /**
      * gets types from type scanner
      * @return set of types in string
