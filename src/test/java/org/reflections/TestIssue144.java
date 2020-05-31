@@ -81,7 +81,9 @@ public class TestIssue144 {
 
         }
     }
-
+    
+//CS304 (manually written) Issue link:
+//https://github.com/ronmamo/reflections/issues/144
 
     @Test
     public void TestRepeatableAnnotationType(){
