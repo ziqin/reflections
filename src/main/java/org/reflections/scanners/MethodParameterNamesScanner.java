@@ -14,6 +14,8 @@ import java.util.List;
 
 import static org.reflections.util.Utils.join;
 
+//CS304 Issue link: https://github.com/ronmamo/reflections/issues/256
+
 /** Scans methods/constructors and indexes parameter names */
 @SuppressWarnings("unchecked")
 public class MethodParameterNamesScanner extends AbstractScanner {
