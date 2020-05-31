@@ -23,7 +23,8 @@ class TestClass {
         String testLocal = "local";
     }
 }
-
+//CS304 (manually written) Issue link:
+//https://github.com/ronmamo/reflections/issues/256
 
 public class TestIssue256 {
     static Reflections reflections;
