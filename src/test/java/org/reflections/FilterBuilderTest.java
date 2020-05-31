@@ -63,7 +63,7 @@ public class FilterBuilderTest {
         assertFalse(filter.test("org.a.b"));
         assertTrue(filter.test("org.foobar.b"));
     }
-
+    //CS304 (manually written) Issue link:https://github.com/ronmamo/reflections/issues/236
     @Test
     public void test_excludePackageMultiple() {
       FilterBuilder filter = new FilterBuilder().excludePackage("org.reflections", "org.foo");
