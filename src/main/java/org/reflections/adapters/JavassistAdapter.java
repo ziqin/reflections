@@ -153,7 +153,8 @@ public class JavassistAdapter implements MetadataAdapter<ClassFile, FieldInfo, M
     public boolean acceptsInput(String file) {
         return file.endsWith(".class");
     }
-
+    
+    //CS304 Issue link: https://github.com/ronmamo/reflections/issues/144
     /**
      * get the name of annotations of annotationsAttributes from Type, Method or Field.
      * @param annotationsAttributes the list AnnotationsAttribute from Type, Method or Field.
@@ -172,7 +173,8 @@ public class JavassistAdapter implements MetadataAdapter<ClassFile, FieldInfo, M
             return Collections.emptyList();
         }
     }
-
+    
+    //CS304 Issue link: https://github.com/ronmamo/reflections/issues/144
     /**
      * Support JAVA8 repeatable annotation. Return the name of annotation that is repeatable.
      * @param annotationsAttributes the list AnnotationsAttribute from Type, Method or Field.
