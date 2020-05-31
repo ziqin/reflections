@@ -477,6 +477,7 @@ public class Reflections {
         }
     }
 
+    //CS304 Issue link: https://github.com/ronmamo/reflections
     /**
      * get all methods annotated with a given annotation
      * <p/>depends on MethodAnnotationsScanner configured
